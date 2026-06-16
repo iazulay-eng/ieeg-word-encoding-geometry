@@ -120,13 +120,14 @@ template (baseline + 12 word windows of 160 samples / 1.6 s + 11 gap windows of 
 ## Analysis pipeline
 
 The notebooks (`notebooks/`) are **pure orchestration**: every block is a call into `lib/`, and all
-logic lives in the library. The project's eight research stages:
+logic lives in the library. The project's research stages:
 
 | Stage | Notebook | What |
 |---|---|---|
 | Behavioural SPC | 01 | recall probability by position |
 | Responsive electrodes (PSTH) | 01 | inter-trial reliability score |
 | Super-subject + channel selection | 01 | 4,982 channels, two grand matrices |
+| Word-identity RSM | 01 | 300x300 cross-session geometry |
 | Serial-position RSA | 01 | split-half 12x12 RDM, decoding diagonal |
 | Words vs Gaps (reinstatement) | 01 | cross-condition RDM, second-order geometry |
 | Time-resolved | 01 | 50 ms windows through the gap |
@@ -167,7 +168,17 @@ the analysis turns to the **distributed pattern** across channels (RSA).
 
 ![Grand-average PSTH](docs/figures_book/fig_04.png)
 
-### 5. The decodable serial-position signal is concentrated in early positions
+### 5. Word geometry: a first hint that position matters
+Before testing serial position directly, we built the full **300x300 word RSM** on the whole
+super-subject (all 4,982 channels), with the 300 words arranged by list and position rather than by
+meaning. Faint **12x12 blocks** appear along the diagonal: words close together in a list tend to
+be represented a little more similarly, and the overall geometry is reasonably reproducible across
+the two sessions (r about 0.84 over all channels). It was this block structure, rather than any
+obvious semantic grouping, that prompted us to investigate serial **position**.
+
+![Word-identity RSM (Global Neural Representation Stability)](docs/figures_book/fig_06.png)
+
+### 6. The decodable serial-position signal is concentrated in early positions
 Split-half reliability of each serial position (the diagonal of the 12x12 RDM), with SEM over 10
 iterations. Position 1 is decoded well above the others (about 0.87 / 0.82 across the two
 sessions), position 2 around 0.5, and mid-list positions near 0. The pattern is consistent across
@@ -188,7 +199,7 @@ are again the most reproducible (words W1 = 0.86, W2 = 0.78; gaps G1 = 0.62, G2 
 
 ![Relative representation (second-order RSA)](docs/figures_book/fig_11.png)
 
-### 6. Words vs gaps: some carry-over into the gap
+### 7. Words vs gaps: some carry-over into the gap
 The **cross-condition RDM** correlates each word's pattern (position *i*) with each gap's pattern
 (position *j*); the diagonal asks whether the word-*i* code reappears in gap *i*. The relational
 geometry of the early positions appears to be partly carried into the silent gap
@@ -197,21 +208,21 @@ positions and weaker elsewhere.
 
 ![Cross-condition RDM (Words vs Gaps)](docs/figures_book/fig_14.png)
 
-### 7. How the signal changes through the gap
+### 8. How the signal changes through the gap
 Recomputing the representation in successive 50 ms windows of the gap: positions 1-2 tend to stay
 positive across the gap, and position 1 appears, if anything, to strengthen over time, while
 mid-list positions stay near zero.
 
 ![Time-resolved relative representation](docs/figures_book/fig_21.png)
 
-### 8. Direct decoding, with the gap as a control
+### 9. Direct decoding, with the gap as a control
 Nearest-neighbor decoding of serial position (each Session-1 pattern matched to the most-correlated
 Session-0 template). Word positions tend to fall on the diagonal (chance = 8.3%), while the gap
 control is much weaker, consistent with the effect being specific to word encoding.
 
 ![Nearest-neighbor confusion](docs/figures_book/fig_26.png)
 
-### 9. A weak resemblance to GPT-2
+### 10. A weak resemblance to GPT-2
 Second-order RSA between the 300x300 neural RSM and each of GPT-2's 13 layers (Spearman). The
 resemblance is weak in absolute terms but statistically reliable and consistent across sessions,
 strongest at an early layer (L2, about 0.019, p < 0.001 vs a 1000-permutation null) and absent at
@@ -222,6 +233,14 @@ early-to-middle representations, but the effect sizes are small.
 
 *(All 28 thesis figures are in [`docs/figures_book/`](docs/figures_book/); the notebooks regenerate
 the full set under `results/`.)*
+
+---
+
+## Exploratory: sharp-wave ripples (SWR)
+
+Notebook 03 contains exploratory work on hippocampal sharp-wave ripples. We implemented a method to
+**detect candidate SWR events** in the iEEG, but have not yet integrated these events into the
+representational analysis; this is left as future work.
 
 ---
 
