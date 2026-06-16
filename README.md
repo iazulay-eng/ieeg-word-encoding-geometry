@@ -167,6 +167,13 @@ behavioural curve, and is reproduced across the two independent sessions.
 
 ![Serial-position decoding diagonal](docs/figures_book/fig_09.png)
 
+The **second-order RSA** matrices make the cross-session reproducibility explicit — every
+position's relational profile in Session 0 is correlated with every position's in Session 1
+(boxed diagonal = same position across days), separately for words and gaps. The early positions
+(W1–W2 / G1–G2) are strongly consistent across the two sessions:
+
+![Second-order RSA — words and gaps](docs/figures_book/fig_10.png)
+
 ### 6. Reinstatement: the word's code persists into the gap
 The **cross-condition RDM** correlates each word's pattern (position *i*) with each gap's pattern
 (position *j*); the **diagonal is reinstatement** — the word-*i* code reappearing in gap *i*.
