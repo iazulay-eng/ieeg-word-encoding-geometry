@@ -175,17 +175,12 @@ Early positions reinstate strongly, and the relational geometry is preserved int
 
 ![Cross-condition RDM (Words × Gaps)](docs/figures_book/fig_14.png)
 
-### 7. When does it decay — and how far does it persist?
+### 7. When does the trace decay through the gap?
 Recomputing the representation in successive 50 ms windows of the gap: positions 1–2 stay positive
 throughout and **position 1 even strengthens** (≈0.3 → 0.65), while mid-list positions hover near
 zero.
 
 ![Time-resolved relative representation](docs/figures_book/fig_21.png)
-
-Per-position maintenance (a word's template vs its own following gap) tells the same story — early
-positions are maintained, later ones are not:
-
-![Maintenance](docs/figures_book/fig_23.png)
 
 ### 8. Direct decoding: words decode, gaps are a clean control
 Nearest-neighbor decoding of serial position (each S1 pattern matched to the most-correlated S0
