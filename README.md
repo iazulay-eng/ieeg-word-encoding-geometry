@@ -146,35 +146,55 @@ absent** (the distractor task removes short-term memory). The two sessions overl
 
 ![Serial position curve](docs/figures_book/fig_05.png)
 
-### 3. Why RSA: raw amplitude is not enough
-The grand-average PSTH of the top-100 channels shows word-locked modulation, but it is modest
-(±0.5 dB) and noisy. Mean amplitude is too blunt to characterise the serial-position code — so
-the analysis moves to the **distributed pattern** across channels (RSA).
+### 3. Single electrodes carry clear word responses…
+A reliable electrode shows a crisp high-gamma response at every word onset (W1–W12) — the signal
+is there at the single-channel level.
+
+![Single-electrode PSTH](docs/figures_book/fig_02.png)
+
+### 4. …but the population *average* is too blunt → RSA
+Averaged over the top-100 channels the word-locked modulation is modest (±0.5 dB) and noisy. Mean
+amplitude cannot characterise the serial-position code, so the analysis moves to the
+**distributed pattern** across channels (RSA).
 
 ![Grand-average PSTH](docs/figures_book/fig_04.png)
 
-### 4. The neural code is dominated by primacy
-Split-half serial-position RDMs (per session). The diagonal — how reliably each position
-identifies itself across independent list-halves — is **0.87 / 0.82 for position 1**, ~0.5 for
-position 2, and ≈ 0 through the middle of the list. The neural code carries primacy, mirroring
-behaviour; the word-level geometry is reproduced across the two independent sessions.
+### 5. The neural code is dominated by primacy
+Split-half reliability of each serial position (diagonal of the 12×12 RDM), with SEM over 10
+iterations. **Position 1 is decoded far above all others (0.87 / 0.82** across the two sessions),
+position 2 ≈ 0.5, and mid-list positions ≈ 0 — the neural code carries primacy, mirroring the
+behavioural curve, and is reproduced across the two independent sessions.
 
-![Serial-position decoding](docs/figures_book/fig_08.png)
+![Serial-position decoding diagonal](docs/figures_book/fig_09.png)
 
-### 5. The early-position code is reinstated — and held — through the gap
-Recomputing the representation in successive 50 ms windows of the silent gap: positions 1–2 stay
-positive across the whole gap, and **position 1 strengthens over time** (≈0.3 → 0.65), while
-mid-list positions hover near zero. The word's positional geometry persists after it disappears
+### 6. Reinstatement: the word's code persists into the gap
+The **cross-condition RDM** correlates each word's pattern (position *i*) with each gap's pattern
+(position *j*); the **diagonal is reinstatement** — the word-*i* code reappearing in gap *i*.
+Early positions reinstate strongly, and the relational geometry is preserved into the silent gap
 (words-vs-gaps global geometry r = **0.682 / 0.526**).
+
+![Cross-condition RDM (Words × Gaps)](docs/figures_book/fig_14.png)
+
+### 7. When does it decay — and how far does it persist?
+Recomputing the representation in successive 50 ms windows of the gap: positions 1–2 stay positive
+throughout and **position 1 even strengthens** (≈0.3 → 0.65), while mid-list positions hover near
+zero.
 
 ![Time-resolved relative representation](docs/figures_book/fig_21.png)
 
-Per-position maintenance (correlating a word's template with its own following gap) shows the
-same picture — early positions reinstate, later ones do not:
+Per-position maintenance (a word's template vs its own following gap) tells the same story — early
+positions are maintained, later ones are not:
 
 ![Maintenance](docs/figures_book/fig_23.png)
 
-### 6. The brain's word geometry weakly matches GPT-2
+### 8. Direct decoding: words decode, gaps are a clean control
+Nearest-neighbor decoding of serial position (each S1 pattern matched to the most-correlated S0
+template). Word positions land on the diagonal (chance = 8.3%); the gap control collapses,
+confirming the effect is specific to word encoding.
+
+![Nearest-neighbor confusion](docs/figures_book/fig_26.png)
+
+### 9. The brain's word geometry weakly matches GPT-2
 Second-order RSA between the 300×300 neural RSM and each of GPT-2's 13 layers (Spearman). The
 match is small but **significant and reproducible across sessions**, peaking at an **early layer
 (L2 ≈ 0.019, p < 0.001**, vs a 1000-permutation null) and **collapsing at the output layer
