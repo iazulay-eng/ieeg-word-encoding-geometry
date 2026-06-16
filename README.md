@@ -174,6 +174,12 @@ position's relational profile in Session 0 is correlated with every position's i
 
 ![Second-order RSA — words and gaps](docs/figures_book/fig_10.png)
 
+Reading off that boxed diagonal gives the per-position **relative-representation** bar plot — how
+reproducible each position's geometry is across sessions, for words and gaps. Primacy dominates
+again (W1 = 0.86, W2 = 0.78), and the early gap positions are consistent too (G1 = 0.62, G2 = 0.60):
+
+![Relative representation (second-order RSA)](docs/figures_book/fig_11.png)
+
 ### 6. Reinstatement: the word's code persists into the gap
 The **cross-condition RDM** correlates each word's pattern (position *i*) with each gap's pattern
 (position *j*); the **diagonal is reinstatement** — the word-*i* code reappearing in gap *i*.
